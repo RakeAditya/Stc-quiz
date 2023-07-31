@@ -1,14 +1,13 @@
 import React from 'react';
 import './quiz.css';
 import { Loader } from '../../components';
-import { useParams, useLocation, useNavigate } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { QuizNavigation, QuizPanel } from '../../components';
 import TimerWithButton from '../../components/timer/TimerWithButton';
 import Popup from '../../components/popup/Popup';
 import axios from 'axios';
 export const QuizProvider = React.createContext({});
 const Quiz = () => {
-	const navigate = useNavigate();
 	const { id } = useParams();
 	const [pop, setPop] = React.useState(false);
 	const { state } = useLocation();
@@ -33,8 +32,10 @@ const Quiz = () => {
 			// 	setLoad(false);
 			// 	navigate('/index');
 			// }, 2000);
-			ansArray.map((itm) => {
-				if (itm !== -1) setCount((pre) => pre + 1);
+			ansArray.forEach((itm) => {
+				if (itm !== -1) {
+					setCount((pre) => pre + 1);
+				}
 			});
 			setPop(true);
 		} catch (error) {
@@ -64,12 +65,12 @@ const Quiz = () => {
 	if (load) return <Loader />;
 	if (pop) return <Popup state={true} value={ansArray.length} name={count} />;
 	return (
-		<QuizProvider.Provider value={{ allData, quesNum, setQues, setAnswer, ansArray }}>
+		<QuizProvider.Provider value={{ allData, quesNum, setQues, setAnswer, ansArray, handleSubmit }}>
 			<div className="quiz-component">
 				<div className="quiz-head">
 					<h1>{state.name}</h1>
 					<div onClick={() => setQuesNum((pre) => pre + 1)}>
-						<TimerWithButton time={5} submitFunct={handleSubmit} />
+						<TimerWithButton time={state.time} submitFunct={handleSubmit} />
 					</div>
 				</div>
 				<div className="quiz-body">

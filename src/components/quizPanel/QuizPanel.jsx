@@ -4,7 +4,7 @@ import { QuizProvider } from '../../pages/quiz/Quiz';
 import './quizpanel.css';
 import Loader from '../loader/Loader';
 const QuizPanel = () => {
-	const { allData, quesNum, setQues, setAnswer, ansArray } = React.useContext(QuizProvider);
+	const { allData, quesNum, setQues, setAnswer, ansArray, handleSubmit } = React.useContext(QuizProvider);
 	const [choosen, setChoosen] = React.useState(-1);
 	if (!allData) return <Loader />;
 	const handleNext = () => {
@@ -29,7 +29,7 @@ const QuizPanel = () => {
 					</button>
 				)}
 				{quesNum === allData.length - 1 ? (
-					<button className="foot-btn btn-2" onClick={handleNext}>
+					<button className="foot-btn btn-2" onClick={handleSubmit}>
 						Submit
 					</button>
 				) : (
