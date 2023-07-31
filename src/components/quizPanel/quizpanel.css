@@ -1,0 +1,42 @@
+.quiz-panel-home {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.quiz-footer {
+	border-top: 1px solid black;
+	box-shadow: -2px -2px 5px black;
+	min-height: 100px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.quiz-footer .foot-btn {
+	padding: 10px 20px;
+	width: 150px;
+	margin: 10px;
+	outline: none;
+	border: 1px solid black;
+	font-weight: 700;
+	border-radius: 15px;
+	font-size: 1.2rem;
+	cursor: pointer;
+	background-color: white;
+
+	transition: 0.3s ease;
+}
+.btn-1:hover {
+	background-color: rgb(241, 61, 61);
+}
+.btn-2:hover {
+	background-color: rgb(61, 241, 61);
+}
+@media screen and (min-width: 320px) {
+	.quiz-footer {
+		justify-content: space-evenly;
+	}
+}

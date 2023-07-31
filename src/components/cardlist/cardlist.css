@@ -1,0 +1,32 @@
+* {
+	transition: all 0.3 linear;
+}
+.quiz-home {
+	border: 1px solid green;
+	background-color: rgb(247, 238, 238);
+	width: 100%;
+	min-height: 100vh;
+	position: relative;
+}
+.quiz-home h1 {
+	text-align: center;
+	font-size: 36px;
+	margin: 3rem 0;
+}
+.section {
+	width: min(1600px, 100%);
+	margin: 0 auto;
+	min-height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	flex-basis: 50%;
+	/* border: 1px solid red; */
+	/* yaha s grid wala */
+}
+@media screen and (min-width: 1565px) {
+	.section {
+		justify-content: flex-start;
+	}
+}
